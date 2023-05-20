@@ -20,7 +20,7 @@ SRC			=		PhoneBook.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
-DEPS		=		$(addprefix $(BUILD_DIR), $(OBJ:.o=.d))
+DEPS		=		$(OBJ:.o=.d)
 
 #######################
 #	FLAGS
