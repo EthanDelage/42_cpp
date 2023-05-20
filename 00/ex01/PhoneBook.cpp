@@ -12,6 +12,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 static void	displaySearch(int totalContactAdd, Contact contactList[MAX_CONTACT]);
 static void	displaySearchRow(int index, Contact contact);
@@ -105,11 +106,13 @@ static void	displaySeparation() {
 }
 
 static int	getIndex(int totalContactAdd) {
+	std::string input;
 	int	index;
 
 	std::cout << "Select an index for more information: ";
 
-	std::cin >> index;
+	std::cin >> input;
+	std::stringstream(input) >> index;
 	if (index < 0 || (index >= totalContactAdd || index >= MAX_CONTACT))
 	{
 		std::cout << "Not a valid index" << std::endl;
