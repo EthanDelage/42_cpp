@@ -124,19 +124,18 @@ Account::Account() {
 }
 
 void	Account::_displayTimestamp() {
-	std::cout << "[19920104_091532]";
-//	time_t	current_time;
-//	std::tm	*timeinfo;
-//
-//	time(&current_time);
-//	timeinfo = localtime(&current_time);
-//	std::cout << '['
-//			<< std::setfill('0') << std::setw(4) << timeinfo->tm_year + 1900
-//			<< std::setfill('0') << std::setw(2) << timeinfo->tm_mon + 1
-//			<< std::setfill('0') << std::setw(2) << timeinfo->tm_mday
-//			<< '_'
-//			<< std::setfill('0') << std::setw(2) << timeinfo->tm_hour
-//			<< std::setfill('0') << std::setw(2) << timeinfo->tm_min
-//			<< std::setfill('0') << std::setw(2) << timeinfo->tm_sec
-//			<< ']';
+	time_t	current_time;
+	std::tm	*timeinfo;
+
+	time(&current_time);
+	timeinfo = localtime(&current_time);
+	std::cout << '['
+			<< std::setfill('0') << std::setw(4) << timeinfo->tm_year + 1900
+			<< std::setfill('0') << std::setw(2) << timeinfo->tm_mon + 1
+			<< std::setfill('0') << std::setw(2) << timeinfo->tm_mday
+			<< '_'
+			<< std::setfill('0') << std::setw(2) << timeinfo->tm_hour
+			<< std::setfill('0') << std::setw(2) << timeinfo->tm_min
+			<< std::setfill('0') << std::setw(2) << timeinfo->tm_sec
+			<< ']';
 }
