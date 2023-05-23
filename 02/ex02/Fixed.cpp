@@ -59,7 +59,7 @@ Fixed	operator*(const Fixed &a, const Fixed &b) {
 Fixed	operator/(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = (a._fixedPointValue - b._fixedPointValue) >> result._nbFractionalBits;
+	result._fixedPointValue = (a._fixedPointValue / b._fixedPointValue) << result._nbFractionalBits;
 	return (result);
 }
 
