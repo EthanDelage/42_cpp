@@ -14,9 +14,9 @@
 int	main(void)
 {
 	const Point	A = Point(Fixed(2), Fixed(1));
-	const Point	B = Point(Fixed(1.5f), Fixed(2));
-	const Point	C = Point(Fixed(4), Fixed(2.5f));
-	const Point	P = Point(Fixed(2), Fixed(2));
+	const Point	B = Point(Fixed(1), Fixed(2));
+	const Point	C = Point(Fixed(1), Fixed(1));
+	const Point	P = Point(Fixed(1.5f), Fixed(1.5f));
 
 	if (Point::pointInTriangle(A, B, C, P))
 		std::cout << "Point in triangle" << std::endl;

@@ -52,19 +52,19 @@ bool	Point::pointInTriangle(const Point pointA, const Point pointB, const Point 
 	relativeVector = getVector(pointA, pointP);
 	sign = vectorProduct(sideTriangleVector, relativeVector);
 	if (sign == 0)
-		return (true);
+		return (false);
 	sideTriangleVector = getVector(pointB, pointC);
 	relativeVector = getVector(pointB, pointP);
 	result = vectorProduct(sideTriangleVector, relativeVector);
 	if (result == 0)
-		return (true);
+		return (false);
 	else if ((result < 0 && sign > 0) || (result > 0 && sign < 0))
 		return (false);
 	sideTriangleVector = getVector(pointC, pointA);
 	relativeVector = getVector(pointC, pointP);
 	result = vectorProduct(sideTriangleVector, relativeVector);
 	if (result == 0)
-		return (true);
+		return (false);
 	else if ((result < 0 && sign > 0) || (result > 0 && sign < 0))
 		return (false);
 	return (true);
