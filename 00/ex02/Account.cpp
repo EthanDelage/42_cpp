@@ -125,7 +125,7 @@ Account::Account() {
 
 void	Account::_displayTimestamp() {
 	time_t	current_time;
-	std::tm	*timeinfo;
+	tm		*timeinfo;
 
 	time(&current_time);
 	timeinfo = localtime(&current_time);
