@@ -55,9 +55,9 @@ void Contact::setDarkestSecret(std::string darkestSecret) {
 }
 
 void Contact::toString() {
-	std::cout << this->nickName << "information:" << std::endl;
-	std::cout << "\tFirst Name:\t" << this->firstName << std::endl;
-	std::cout << "\tLast Name:\t" << this->lastName << std::endl;
-	std::cout << "\tPhone number:\t" << this->phoneNumber << std::endl;
-	std::cout << "\tDarkest secret:\t" << this->darkestSecret << std::endl;
+	std::cout << this->nickName << " information:" << std::endl;
+	std::cout << "\tFirst Name: " << this->firstName << std::endl;
+	std::cout << "\tLast Name: " << this->lastName << std::endl;
+	std::cout << "\tPhone number: " << this->phoneNumber << std::endl;
+	std::cout << "\tDarkest secret: " << this->darkestSecret << std::endl;
 }

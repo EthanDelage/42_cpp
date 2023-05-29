@@ -19,6 +19,7 @@ static void	displaySearchRow(int index, Contact contact);
 static void	displaySearchCell(std::string content);
 static void	displaySeparation();
 static int	getIndex(int totalContactAdd);
+static bool isNumber(std::string str);
 
 PhoneBook::PhoneBook() {
 	this->totalContactAdd = 0;
@@ -113,11 +114,23 @@ static int	getIndex(int totalContactAdd) {
 
 	std::cin >> input;
 	std::stringstream(input) >> index;
-	if (index < 0 || (index >= totalContactAdd || index >= MAX_CONTACT))
+	if (!isNumber(input) || index < 0
+		|| (index >= totalContactAdd || index >= MAX_CONTACT))
 	{
 		std::cout << "Not a valid index" << std::endl;
 		return (-1);
 	}
 	return (index);
 
+}
+
+static bool isNumber(std::string str) {
+	const size_t	len = str.length();
+
+	for (size_t i = 0; i < len; i++)
+	{
+		if (!isdigit(str[i]))
+			return (false);
+	}
+	return (true);
 }
