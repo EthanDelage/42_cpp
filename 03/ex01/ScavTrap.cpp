@@ -34,6 +34,14 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
+ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
+	this->_name = other._name;
+	this->_hitPoints = other._hitPoints;
+	this->_energyPoints = other._energyPoints;
+	this->_attackDamage = other._attackDamage;
+	return (*this);
+}
+
 void	ScavTrap::attack(const std::string &target) {
 	if (this->_energyPoints == 0)
 		std::cout << "ScavTrap " << this->_name
