@@ -9,10 +9,10 @@
 /*   Updated: 2023/05/20 18:19:00 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <cstring>
 
-static std::ofstream	createOutputFile(char *filename);
 static void	searchAndReplace(char *strToFind, char *strToReplace,
 				std::ifstream &inputFile, std::ofstream &outputFile);
 static std::string	getFileContent(std::ifstream &file);
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 {
 	std::ifstream	inputFile;
 	std::ofstream	outputFile;
+	std::string		outputFileName;
 
 	if (argc != 4)
 	{
@@ -33,7 +34,9 @@ int	main(int argc, char **argv)
 		std::cout << "Can't open file" << std::endl;
 		return (1);
 	}
-	outputFile = createOutputFile(argv[1]);
+	outputFileName = argv[1];
+	outputFileName.append(".replace");
+	outputFile.open(outputFileName.c_str(), std::fstream::out);
 	if (!outputFile.is_open())
 	{
 		inputFile.close();
@@ -42,16 +45,6 @@ int	main(int argc, char **argv)
 	}
 	searchAndReplace(argv[2], argv[3], inputFile, outputFile);
 	outputFile.close();
-}
-
-static std::ofstream	createOutputFile(char *filename)
-{
-	std::ofstream	outputFile;
-	std::string		outputFileName(filename);
-
-	outputFileName.append(".replace");
-	outputFile.open(outputFileName, std::fstream::out);
-	return (outputFile);
 }
 
 static void	searchAndReplace(char *strToFind, char *strToReplace,

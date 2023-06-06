@@ -59,7 +59,7 @@ Fixed	operator*(const Fixed &a, const Fixed &b) {
 Fixed	operator/(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = std::roundf(((float) a._fixedPointValue / b._fixedPointValue) * (1 << result._nbFractionalBits));
+	result._fixedPointValue = roundf(((float) a._fixedPointValue / b._fixedPointValue) * (1 << result._nbFractionalBits));
 	return (result);
 }
 
