@@ -1,4 +1,4 @@
-NAME		=		open
+NAME		=		animal
 
 #######################
 #	DIR
@@ -16,6 +16,10 @@ BUILD_DIR	=		.build/
 
 SRC			=		main.cpp		\
 					Animal.cpp		\
+					Dog.cpp			\
+					Cat.cpp			\
+					WrongAnimal.cpp	\
+					WrongCat.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
@@ -25,7 +29,7 @@ DEPS		=		$(OBJ:.o=.d)
 #	FLAGS
 #######################
 
-CFLAGS		=		-Wall -Werror -Wextra -Wshadow -std=c++98 -g
+CFLAGS		=		-Wall -Werror -Wextra -std=c++98 -g
 
 IFLAGS		=		-I $(INC_DIR)
 

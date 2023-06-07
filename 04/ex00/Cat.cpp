@@ -15,7 +15,7 @@
 
 Cat::Cat() {
 	std::cout << "Cat default constructor called" << std::endl;
-	this->type = "Cat";
+	this->_type = "Cat";
 }
 
 Cat::Cat(Cat const &other) {
@@ -28,6 +28,10 @@ Cat::~Cat() {
 }
 
 Cat &Cat::operator=(Cat const &other) {
-	this->type = other.type;
+	this->_type = other._type;
 	return (*this);
+}
+
+void Cat::makeSound() const {
+	std::cout << "Meow" << std::endl;
 }

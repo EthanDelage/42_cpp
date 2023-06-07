@@ -15,7 +15,7 @@
 
 Dog::Dog() {
 	std::cout << "Dog default constructor called" << std::endl;
-	this->type = "Dog";
+	this->_type = "Dog";
 }
 
 Dog::Dog(Dog const &other) {
@@ -28,6 +28,10 @@ Dog::~Dog() {
 }
 
 Dog &Dog::operator=(Dog const &other) {
-	this->type = other.type;
+	this->_type = other._type;
 	return (*this);
+}
+
+void Dog::makeSound() const {
+	std::cout << "Woof" << std::endl;
 }

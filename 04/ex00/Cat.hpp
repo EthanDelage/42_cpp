@@ -23,6 +23,8 @@ public:
 
 	Cat &operator=(Cat const &other);
 
+	void	makeSound() const;
+
 private:
 
 };
