@@ -19,6 +19,7 @@ class Point {
 public:
 	Point();
 	Point(const Point &copy);
+	Point(const float x, const float y);
 	Point(const Fixed &x, const Fixed &y);
 	~Point();
 
@@ -26,7 +27,7 @@ public:
 
 	static Point	getVector(const Point, const Point);
 	static Fixed	vectorProduct(const Point leftVector, const Point rightVector);
-	static bool		pointInTriangle(const Point pointA, const Point pointB, const Point pointC,
+	static bool		bsp(const Point pointA, const Point pointB, const Point pointC,
 						const Point pointP);
 
 private:

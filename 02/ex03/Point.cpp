@@ -21,9 +21,14 @@ Point::Point(const Point &copy) {
 	_y = copy._y;
 }
 
-Point::Point(const Fixed &x, const Fixed &y) {
+Point::Point(const float x, const float y) {
 	_x = Fixed(x);
 	_y = Fixed(y);
+}
+
+Point::Point(const Fixed &x, const Fixed &y) {
+	_x = x;
+	_y = y;
 }
 
 Point::~Point() {}
@@ -42,7 +47,7 @@ Fixed	Point::vectorProduct(const Point leftVector, const Point rightVector) {
 	return (leftVector._x * rightVector._y - leftVector._y * rightVector._x);
 }
 
-bool	Point::pointInTriangle(const Point pointA, const Point pointB, const Point pointC, const Point pointP) {
+bool	Point::bsp(const Point pointA, const Point pointB, const Point pointC, const Point pointP) {
 	Point	sideTriangleVector;
 	Point	relativeVector;
 	Fixed	sign;

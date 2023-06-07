@@ -29,11 +29,11 @@ public:
 	Fixed				operator++(int);
 	Fixed				operator--(int);
 
-	void	setRawBits(int const raw);
-	int		getRawBits() const;
+	void		setRawBits(int const raw);
+	int			getRawBits() const;
 	static int	getNbFractionalBits();
-	int		toInt() const;
-	float	toFloat() const;
+	int			toInt() const;
+	float		toFloat() const;
 
 	static const Fixed	&min(const Fixed &a, const Fixed &b);
 	static const Fixed	&max(const Fixed &a, const Fixed &b);

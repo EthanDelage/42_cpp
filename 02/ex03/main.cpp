@@ -13,22 +13,22 @@
 
 int	main(void)
 {
-	const Point	A = Point(Fixed(2), Fixed(1));
-	const Point	B = Point(Fixed(1), Fixed(2));
-	const Point	C = Point(Fixed(1), Fixed(1));
-	const Point	P = Point(Fixed(1.5f), Fixed(1.5f));
+	const Point	A = Point(2, 2);
+	const Point	B = Point(4, 0);
+	const Point	C = Point(0, 1);
+	const Point	P = Point(1.5f, 1.3f);
 
-	if (Point::pointInTriangle(A, B, C, P))
+	if (Point::bsp(A, B, C, P))
 		std::cout << "Point in triangle" << std::endl;
 	else
 		std::cout << "Point outside triangle" << std::endl;
 
-	const Point	D = Point(Fixed(2), Fixed(1));
-	const Point	E = Point(Fixed(1.5f), Fixed(2));
-	const Point	F = Point(Fixed(4), Fixed(2.5f));
-	const Point	M = Point(Fixed(1), Fixed(1));
+	const Point	D = Point(2, 1);
+	const Point	E = Point(1.5f, 2);
+	const Point	F = Point(4, 2.5f);
+	const Point	M = Point(1, 1);
 
-	if (Point::pointInTriangle(A, B, C, P))
+	if (Point::bsp(D, E, F, M))
 		std::cout << "Point in triangle" << std::endl;
 	else
 		std::cout << "Point outside triangle" << std::endl;
