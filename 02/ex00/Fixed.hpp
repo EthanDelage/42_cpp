@@ -22,7 +22,7 @@ public:
 	Fixed	&operator=(const Fixed &a);
 
 	void	setRawBits(int const raw);
-	int		getRawBits();
+	int		getRawBits() const;
 
 private:
 	static const int	_nbFractionalBits = 8;

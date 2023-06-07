@@ -24,10 +24,9 @@ public:
 	~Fixed();
 
 	Fixed				&operator=(const Fixed &a);
-	friend std::ostream	&operator<<(std::ostream &os, const Fixed &a);
 
 	void	setRawBits(int const raw);
-	int		getRawBits();
+	int		getRawBits() const;
 	int		toInt() const;
 	float	toFloat() const;
 
@@ -36,5 +35,7 @@ private:
 	int					_fixedPointValue;
 
 };
+
+std::ostream	&operator<<(std::ostream &os, const Fixed &a);
 
 #endif

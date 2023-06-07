@@ -28,20 +28,10 @@ public:
 	Fixed				&operator--();
 	Fixed				operator++(int);
 	Fixed				operator--(int);
-	friend Fixed		operator+(const Fixed &a, const Fixed &b);
-	friend Fixed		operator-(const Fixed &a, const Fixed &b);
-	friend Fixed		operator*(const Fixed &a, const Fixed &b);
-	friend Fixed		operator/(const Fixed &a, const Fixed &b);
-	friend bool			operator>(const Fixed &a, const Fixed &b);
-	friend bool			operator<(const Fixed &a, const Fixed &b);
-	friend bool			operator>=(const Fixed &a, const Fixed &b);
-	friend bool			operator<=(const Fixed &a, const Fixed &b);
-	friend bool			operator==(const Fixed &a, const Fixed &b);
-	friend bool			operator!=(const Fixed &a, const Fixed &b);
-	friend std::ostream	&operator<<(std::ostream &os, const Fixed &a);
 
 	void	setRawBits(int const raw);
-	int		getRawBits();
+	int		getRawBits() const;
+	static int	getNbFractionalBits();
 	int		toInt() const;
 	float	toFloat() const;
 
@@ -55,5 +45,17 @@ private:
 	int					_fixedPointValue;
 
 };
+
+Fixed			operator+(const Fixed &a, const Fixed &b);
+Fixed			operator-(const Fixed &a, const Fixed &b);
+Fixed			operator*(const Fixed &a, const Fixed &b);
+Fixed			operator/(const Fixed &a, const Fixed &b);
+bool			operator>(const Fixed &a, const Fixed &b);
+bool			operator<(const Fixed &a, const Fixed &b);
+bool			operator>=(const Fixed &a, const Fixed &b);
+bool			operator<=(const Fixed &a, const Fixed &b);
+bool			operator==(const Fixed &a, const Fixed &b);
+bool			operator!=(const Fixed &a, const Fixed &b);
+std::ostream	&operator<<(std::ostream &os, const Fixed &a);
 
 #endif

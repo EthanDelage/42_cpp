@@ -18,13 +18,10 @@ int	main(void)
 	Fixed	b(a);
 	Fixed	c;
 
+	c = b;
+
 	std::cout << "a " << a.getRawBits() << std::endl;
 	std::cout << "b " << b.getRawBits() << std::endl;
-	b.setRawBits(4);
-	std::cout << std::endl << "b " << b.getRawBits() << std::endl;
-	c = b;
 	std::cout << "c " << c.getRawBits() << std::endl;
-	c.setRawBits(8);
-	std::cout << std::endl << "c " << c.getRawBits() << std::endl;
 	return (0);
 }

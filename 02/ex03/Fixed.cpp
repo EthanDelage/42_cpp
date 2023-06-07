@@ -38,34 +38,36 @@ Fixed	&Fixed::operator=(const Fixed &a) {
 Fixed	operator+(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = a._fixedPointValue + b._fixedPointValue;
+	result.setRawBits(a.getRawBits() + b.getRawBits());
 	return (result);
 }
 
 Fixed	operator-(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = a._fixedPointValue - b._fixedPointValue;
+	result.setRawBits(a.getRawBits() - b.getRawBits());
 	return (result);
 }
 
 Fixed	operator*(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = (a._fixedPointValue * b._fixedPointValue) >> result._nbFractionalBits;
+	result.setRawBits((a.getRawBits() * b.getRawBits())
+		>> Fixed::getNbFractionalBits());
 	return (result);
 }
 
 Fixed	operator/(const Fixed &a, const Fixed &b) {
 	Fixed	result;
 
-	result._fixedPointValue = std::roundf(((float) a._fixedPointValue / b._fixedPointValue) * (1 << result._nbFractionalBits));
+	result.setRawBits(roundf(((float) a.getRawBits() / b.getRawBits())
+		* (1 << Fixed::getNbFractionalBits())));
 	return (result);
 }
 
 Fixed	&Fixed::operator++()
 {
-	_fixedPointValue++;
+	this->_fixedPointValue++;
 	return (*this);
 }
 
@@ -92,27 +94,27 @@ Fixed	Fixed::operator--(int)
 }
 
 bool			operator>(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue > b._fixedPointValue);
+	return (a.getRawBits() > b.getRawBits());
 }
 
 bool			operator<(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue < b._fixedPointValue);
+	return (a.getRawBits() < b.getRawBits());
 }
 
 bool			operator>=(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue >= b._fixedPointValue);
+	return (a.getRawBits() >= b.getRawBits());
 }
 
 bool			operator<=(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue <= b._fixedPointValue);
+	return (a.getRawBits() <= b.getRawBits());
 }
 
 bool			operator==(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue == b._fixedPointValue);
+	return (a.getRawBits() == b.getRawBits());
 }
 
 bool			operator!=(const Fixed &a, const Fixed &b) {
-	return (a._fixedPointValue != b._fixedPointValue);
+	return (a.getRawBits() != b.getRawBits());
 }
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &a)
@@ -125,8 +127,12 @@ void	Fixed::setRawBits(const int raw) {
 	this->_fixedPointValue = raw;
 }
 
-int	Fixed::getRawBits() {
+int	Fixed::getRawBits() const {
 	return (this->_fixedPointValue);
+}
+
+int Fixed::getNbFractionalBits() {
+	return (_nbFractionalBits);
 }
 
 int	Fixed::toInt() const {
