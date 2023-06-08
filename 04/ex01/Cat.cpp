@@ -19,7 +19,7 @@ Cat::Cat() {
 	this->_Brain = new Brain();
 }
 
-Cat::Cat(Cat const &other) {
+Cat::Cat(Cat const &other): Animal(other) {
 	std::cout << "Cat copy constructor called" << std::endl;
 	*this = other;
 }
@@ -31,6 +31,8 @@ Cat::~Cat() {
 
 Cat &Cat::operator=(Cat const &other) {
 	this->_type = other._type;
+	for (int i = 0; i < NB_IDEAS; i++)
+		this->_Brain[i] = other._Brain[i];
 	return (*this);
 }
 
