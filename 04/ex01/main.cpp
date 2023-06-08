@@ -17,23 +17,14 @@
 #include <iostream>
 
 int main() {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal *k = new WrongCat();
+	Animal	*animals[10];
+	for (int i = 0; i < 5; i++)
+		animals[i] = new Dog();
+	for (int i = 5; i < 10; i++)
+		animals[i] = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << k->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	k->makeSound();
-	meta->makeSound();
-
-	delete meta;
-	delete i;
-	delete j;
-	delete k;
-
+	for (int i = 0; i < 10; ++i) {
+		delete animals[i];
+	}
 	return 0;
 }

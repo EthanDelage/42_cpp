@@ -16,10 +16,12 @@
 Dog::Dog() {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->_type = "Dog";
+	this->_Brain = new Brain();
 }
 
 Dog::Dog(Dog const &other): Animal(other) {
 	std::cout << "Dog copy constructor called" << std::endl;
+	*this = other;
 }
 
 Dog::~Dog() {
@@ -28,6 +30,8 @@ Dog::~Dog() {
 
 Dog &Dog::operator=(Dog const &other) {
 	this->_type = other._type;
+	for (int i = 0; i < NB_IDEAS; i++)
+		this->_Brain[i] = other._Brain[i];
 	return (*this);
 }
 
