@@ -16,7 +16,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap: public FragTrap, ScavTrap {
+class DiamondTrap: virtual FragTrap, ScavTrap {
 
 public:
 	DiamondTrap();
