@@ -18,6 +18,7 @@ SRC			=		main.cpp		\
 					AMateria.cpp	\
 					Ice.cpp			\
 					Cure.cpp		\
+					Character.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Ice.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
 
 Ice::Ice(): AMateria("ice") {}
 
@@ -27,4 +29,8 @@ AMateria *Ice::clone() const {
 
 	clone = new Ice(*this);
 	return (clone);
+}
+
+void Ice::use(ICharacter &target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

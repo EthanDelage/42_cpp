@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Cure.hpp"
+#include "ICharacter.hpp"
+
+#include <iostream>
 
 Cure::Cure(): AMateria("cure") {}
 
@@ -27,4 +30,8 @@ AMateria *Cure::clone() const {
 
 	clone = new Cure(*this);
 	return (clone);
+}
+
+void Cure::use(ICharacter &target) {
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

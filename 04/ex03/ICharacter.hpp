@@ -15,22 +15,15 @@
 # include "AMateria.hpp"
 # include <string>
 
+
 class ICharacter {
 
 public:
-	ICharacter();
-	ICharacter(ICharacter const &other);
-	virtual ~ICharacter() {};
-
-	ICharacter &operator=(ICharacter const &other);
-
+	virtual ~ICharacter() {}
 	virtual std::string	const	&getName() const = 0;
 	virtual void				equip(AMateria *m) = 0;
 	virtual void				unequip(int index) = 0;
 	virtual void				use(int index, ICharacter &target) = 0;
-
-private:
-	AMateria	*materia[4];
 
 };
 

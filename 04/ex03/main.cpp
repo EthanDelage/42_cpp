@@ -9,15 +9,22 @@
 /*   Updated: 2023/06/09 11:46:00 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Ice.hpp"
+# include "Character.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
 #include <iostream>
 
 int main() {
-	AMateria	*test;
+	AMateria	*elements[10];
 
-	test = new Ice();
-	std::cout << test->getType() << std::endl;
-	AMateria	*clone = test->clone();
-	std::cout << clone->getType() << std::endl;
-	delete clone;
+	for (int i = 0; i < 5; ++i) {
+		elements[i] = new Ice();
+	}
+	for (int i = 5; i < 10; ++i) {
+		elements[i] = new Cure();
+	}
+
+	for (int i = 0; i < 10; ++i) {
+		delete elements[i];
+	}
 }
