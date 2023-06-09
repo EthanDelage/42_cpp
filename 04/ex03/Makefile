@@ -14,11 +14,12 @@ BUILD_DIR	=		.build/
 #	FILES
 #######################
 
-SRC			=		main.cpp		\
-					AMateria.cpp	\
-					Ice.cpp			\
-					Cure.cpp		\
-					Character.cpp	\
+SRC			=		main.cpp			\
+					AMateria.cpp		\
+					Ice.cpp				\
+					Cure.cpp			\
+					Character.cpp		\
+					MateriaSource.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
