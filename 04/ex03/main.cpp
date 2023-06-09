@@ -15,16 +15,30 @@
 #include <iostream>
 
 int main() {
-	AMateria	*elements[10];
+	AMateria	*elements[8];
+	Character	player("test");
+	Character	player1("tost");
 
-	for (int i = 0; i < 5; ++i) {
+	for (int i = 0; i < 4; ++i) {
 		elements[i] = new Ice();
 	}
-	for (int i = 5; i < 10; ++i) {
+	for (int i = 4; i < 8; ++i) {
 		elements[i] = new Cure();
 	}
+	player.equip(elements[0]);
+	player.equip(elements[1]);
+	player.equip(elements[4]);
+	player.equip(elements[5]);
+	player1.equip(elements[2]);
+	player1.equip(elements[6]);
+	player1.equip(elements[3]);
+	player.equip(elements[7]);
+	player1.equip(elements[7]);
 
-	for (int i = 0; i < 10; ++i) {
-		delete elements[i];
-	}
+	std::cout << "Player 1's name: " << player1.getName() << std::endl;
+
+	player.use(1, player1);
+	player1.unequip(3);
+
+	delete elements[7];
 }

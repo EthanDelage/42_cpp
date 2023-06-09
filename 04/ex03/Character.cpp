@@ -29,12 +29,17 @@ Character::Character(Character const &other) {
 	*this = other;
 }
 
-Character::~Character() {}
+Character::~Character() {
+	for (int i = 0; i < NB_SLOTS; ++i) {
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
+}
 
 Character &Character::operator=(Character const &other) {
 	this->_name = other._name;
 	for (int i = 0; i < NB_SLOTS; ++i) {
-		this->_inventory[i] = other._inventory[i];
+		this->_inventory[i] = other._inventory[i]->clone();
 	}
 	return (*this);
 }
@@ -47,7 +52,7 @@ void Character::equip(AMateria *m) {
 	size_t	index;
 
 	index = 0;
-	while (index < NB_SLOTS && !this->_inventory[index])
+	while (index < NB_SLOTS && this->_inventory[index])
 		index++;
 	if (index != NB_SLOTS)
 		this->_inventory[index] = m;
@@ -58,6 +63,10 @@ void Character::unequip(int index) {
 }
 
 void Character::use(int index, ICharacter &target) {
-	this->_inventory[index]->use(target);
-	this->_inventory[index] = NULL;
+	if (this->_inventory[index])
+	{
+		this->_inventory[index]->use(target);
+		delete this->_inventory[index];
+		this->_inventory[index] = NULL;
+	}
 }

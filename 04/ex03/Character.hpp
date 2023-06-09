@@ -27,10 +27,10 @@ public:
 
 	Character &operator=(Character const &other);
 
-	std::string	const	&getName() const = 0;
-	void				equip(AMateria *m) = 0;
-	void				unequip(int index) = 0;
-	void				use(int index, ICharacter &target) = 0;
+	std::string	const	&getName() const;
+	void				equip(AMateria *m);
+	void				unequip(int index);
+	void				use(int index, ICharacter &target);
 
 private:
 	std::string	_name;
