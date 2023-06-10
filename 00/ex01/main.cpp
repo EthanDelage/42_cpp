@@ -19,10 +19,10 @@ int	main()
 	std::string	userInput;
 
 	std::cout << "My Awesome PhoneBook" << std::endl;
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << std::endl << "PhoneBook >$ ";
-		std::cin >> userInput;
+		std::getline(std::cin, userInput);
 		if (userInput == "ADD")
 			phoneBook.addContact();
 		else if (userInput == "SEARCH")
@@ -35,4 +35,5 @@ int	main()
 		else
 			std::cout << "Invalid command" << std::endl;
 	}
+	std::cout << "Standard input closed" << std::endl;
 }

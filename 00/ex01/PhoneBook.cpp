@@ -31,19 +31,19 @@ void PhoneBook::addContact() {
 
 	std::cout << "Add a new contact:" << std::endl;
 	std::cout << "\tEnter first name:\t";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	newContact.setFirstName(input);
 	std::cout << "\tEnter last name:\t";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	newContact.setLastName(input);
 	std::cout << "\tEnter nickname:\t\t";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	newContact.setNickName(input);
 	std::cout << "\tEnter phone number:\t";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	newContact.setPhoneNumber(input);
 	std::cout << "\tEnter darkest secret:\t";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	newContact.setDarkestSecret(input);
 	this->contactList[this->totalContactAdd % MAX_CONTACT] = newContact;
 	this->totalContactAdd++;
@@ -112,7 +112,7 @@ static int	getIndex(int totalContactAdd) {
 
 	std::cout << "Select an index for more information: ";
 
-	std::cin >> input;
+	std::getline(std::cin, input);
 	std::stringstream(input) >> index;
 	if (!isNumber(input) || index < 0
 		|| (index >= totalContactAdd || index >= MAX_CONTACT))
