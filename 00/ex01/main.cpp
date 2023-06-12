@@ -35,5 +35,5 @@ int	main()
 		else
 			std::cout << "Invalid command" << std::endl;
 	}
-	std::cout << "Standard input closed" << std::endl;
+	std::cout << std::endl << "Standard input closed" << std::endl;
 }
