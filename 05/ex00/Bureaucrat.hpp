@@ -14,6 +14,7 @@
 
 # include <string>
 # include <exception>
+# include <iostream>
 
 class Bureaucrat {
 
@@ -48,5 +49,7 @@ private:
 	uint8_t				_grade;
 
 };
+
+std::ostream	&operator<<(std::ostream &os, Bureaucrat const &B);
 
 #endif

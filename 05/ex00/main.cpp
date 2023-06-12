@@ -15,6 +15,7 @@
 int	main() {
 	try {
 		Bureaucrat	min("min", 150);
+		std::cout << min << std::endl;
 		min.decreaseGrade();
 	}
 	catch (Bureaucrat::GradeTooLowException &e) {

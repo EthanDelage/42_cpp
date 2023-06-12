@@ -58,3 +58,8 @@ void Bureaucrat::decreaseGrade() {
 	else
 		throw GradeTooLowException();
 }
+
+std::ostream	&operator<<(std::ostream &os, Bureaucrat const &B) {
+	os << B.getName() << ", bureaucrat grade " << (unsigned int) B.getGrade();
+	return (os);
+}
