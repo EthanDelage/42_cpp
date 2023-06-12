@@ -11,9 +11,17 @@
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() {
-	this->_name = "Default";
+Bureaucrat::Bureaucrat(): _name("Default") {
 	this->_grade = 150;
+}
+
+Bureaucrat::Bureaucrat(std::string name, uint8_t grade): _name(name) {
+	if (grade > 150)
+		throw GradeTooLowException();
+	else if (grade < 1)
+		throw GradeTooHighException();
+	else
+		this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &other) {
@@ -23,7 +31,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other) {
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other) {
-	this->_name = other._name;
+	if (this == &other)
+		return (*this);
 	this->_grade = other._grade;
 	return (*this);
 }
@@ -39,9 +48,13 @@ uint8_t Bureaucrat::getGrade() const {
 void Bureaucrat::incrementGrade() {
 	if (this->_grade > 1)
 		this->_grade--;
+	else
+		throw GradeTooHighException();
 }
 
 void Bureaucrat::decreaseGrade() {
 	if (this->_grade < 150)
 		this->_grade++;
+	else
+		throw GradeTooLowException();
 }

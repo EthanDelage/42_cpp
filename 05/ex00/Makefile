@@ -1,4 +1,4 @@
-NAME		=		materia
+NAME		=		bureaucrat
 
 #######################
 #	DIR
@@ -15,6 +15,7 @@ BUILD_DIR	=		.build/
 #######################
 
 SRC			=		main.cpp			\
+					Bureaucrat.cpp		\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 

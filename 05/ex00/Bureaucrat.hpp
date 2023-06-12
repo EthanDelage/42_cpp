@@ -13,16 +13,30 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
+# include <exception>
 
 class Bureaucrat {
 
 public:
 	Bureaucrat();
-	Bureaucrat
+	Bureaucrat(std::string name, uint8_t grade);
 	Bureaucrat(Bureaucrat const &other);
 	~Bureaucrat();
 
 	Bureaucrat &operator=(Bureaucrat const &other);
+
+	class GradeTooHighException: public std::exception {
+	public:
+		const char	*what() const throw() {
+			return ("Bureaucrat's grade is too high!");
+		}
+	};
+	class GradeTooLowException: public std::exception {
+	public:
+		const char	*what() const throw() {
+			return ("Bureaucrat's grade is too low!");
+		}
+	};
 
 	std::string	getName() const;
 	uint8_t		getGrade() const;
