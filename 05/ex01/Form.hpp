@@ -34,8 +34,8 @@ public:
 	void			beSigned(Bureaucrat signatory);
 	std::string		getName() const;
 	bool			getIsSigned() const;
-	uint8_t 		getGradeToSign() const;
-	uint8_t 		getGradeToExecute() const;
+	int				getGradeToSign() const;
+	int				getGradeToExecute() const;
 
 private:
 	std::string const	_name;

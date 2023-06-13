@@ -48,7 +48,7 @@ std::ostream	&operator<<(std::ostream &os, Form const &F) {
 }
 
 void Form::beSigned(Bureaucrat signatory) {
-	if (signatory.getGrade() > this->_gradeToExecute)
+	if (signatory.getGrade() > this->_gradeToSign)
 		throw GradeTooLowException();
 	else
 		this->_isSigned = true;
@@ -62,10 +62,10 @@ bool Form::getIsSigned() const {
 	return (this->_isSigned);
 }
 
-uint8_t Form::getGradeToSign() const {
-	return (this->_gradeToSign);
+int	Form::getGradeToSign() const {
+	return ((int) this->_gradeToSign);
 }
 
-uint8_t Form::getGradeToExecute() const {
-	return (this->_gradeToExecute);
+int	Form::getGradeToExecute() const {
+	return ((int) this->_gradeToExecute);
 }

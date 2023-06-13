@@ -15,13 +15,21 @@
 
 int	main() {
 	Bureaucrat	ceo("CEO", 1);
+	std::cout << ceo << std::endl;
 	Bureaucrat	developer("dev", 50);
 	Bureaucrat	intern("intern", 150);
 
 	Form	forTheCEO("For the CEO", 1, 1);
+	std::cout << forTheCEO << std::endl;
 	Form	forTheDev("For the dev", 50, 1);
 	Form	random("Random form", 150, 100);
 
 	ceo.signForm(forTheCEO);
 	ceo.signForm(forTheCEO);
+
+	intern.signForm(forTheDev);
+
+	developer.signForm(forTheDev);
+
+	developer.signForm(random);
 }
