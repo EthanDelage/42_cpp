@@ -25,7 +25,8 @@ Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExecute):
 		throw GradeTooHighException();
 }
 
-Form::Form(Form const &other): _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
+Form::Form(Form const &other):
+		_name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute) {
 	*this = other;
 }
 

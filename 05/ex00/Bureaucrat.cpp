@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(std::string name, uint8_t grade): _name(name) {
 		this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &other) {
+Bureaucrat::Bureaucrat(Bureaucrat const &other): _name(other._name) {
 	*this = other;
 }
 
