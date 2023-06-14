@@ -42,6 +42,7 @@ public:
 	};
 
 	void		signForm(Form &formToSign);
+	void		executeForm(Form const &formToExecute);
 	std::string	getName() const;
 	uint8_t		getGrade() const;
 	void		incrementGrade();

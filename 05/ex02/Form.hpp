@@ -28,9 +28,24 @@ public:
 
 	Form &operator=(Form const &other);
 
-	class GradeTooHighException {};
-	class GradeTooLowException {};
-	class FormNotSigned {};
+	class GradeTooHighException: public std::exception {
+	public:
+		const char	*what() const throw() {
+			return ("Bureaucrat's grade is too high!");
+		}
+	};
+	class GradeTooLowException: public std::exception {
+	public:
+		const char	*what() const throw() {
+			return ("Bureaucrat's grade is too low!");
+		}
+	};
+	class FormNotSigned {
+	public:
+		const char	*what() const throw() {
+			return ("Form is not signed");
+		}
+	};
 
 	virtual void			beSigned(Bureaucrat signatory);
 	virtual void			execute(Bureaucrat const &executor) const = 0;
