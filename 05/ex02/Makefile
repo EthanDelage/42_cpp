@@ -18,6 +18,8 @@ SRC			=		main.cpp					\
 					Bureaucrat.cpp				\
 					Form.cpp					\
 					ShrubberyCreationForm.cpp	\
+					RobotomyRequestForm.cpp		\
+					PresidentialPardonForm.cpp	\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
