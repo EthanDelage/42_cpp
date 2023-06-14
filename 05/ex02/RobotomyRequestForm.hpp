@@ -28,6 +28,9 @@ public:
 
 	void	execute(Bureaucrat const &executor) const;
 
+private:
+	std::string	_target;
+
 };
 
 #endif

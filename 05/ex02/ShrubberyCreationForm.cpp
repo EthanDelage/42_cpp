@@ -16,14 +16,18 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm():
-	Form("Default", 145, 137) {
+	Form("ShrubberyCreationForm", 145, 137) {
+	this->_target = "Default";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-	Form(target, 145, 137) {}
+	Form("ShrubberyCreationForm", 145, 137) {
+	this->_target = target;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other):
 	Form(other) {
+	*this = other;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
@@ -31,6 +35,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other) {
 	if (this == &other)
 		return (*this);
+	this->_target = other._target;
 	this->setIsSigned(other.getIsSigned());
 	return (*this);
 }
@@ -41,10 +46,10 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	else if (this->getGradeToExecute() < executor.getGrade())
 		throw GradeTooLowException();
 
-	std::ofstream outfile(this->getName() + "_shruberry");
+	std::ofstream outfile(this->_target + "_shruberry");
 	if (outfile.fail())
 	{
-		std::cerr << "Cannot open file " << this->getName() << "_shruberry" << std::endl;
+		std::cerr << "Cannot open file " << this->_target << "_shruberry" << std::endl;
 		return ;
 	}
 	outfile << "               ,@@@@@@@,\n"

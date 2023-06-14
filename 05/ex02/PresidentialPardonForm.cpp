@@ -13,16 +13,18 @@
 #include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm():
-	Form("Default", 25, 5) {
+	Form("PresidentialPardonForm", 25, 5) {
+	this->_target = "Default";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
-	Form(target, 25, 5) {
-
+	Form("PresidentialPardonForm", 25, 5) {
+	this->_target = target;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other):
 	Form(other) {
+	*this = other;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
@@ -30,6 +32,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other) {
 	if (this == &other)
 		return (*this);
+	this->_target = other._target;
 	this->setIsSigned(other.getIsSigned());
 	return (*this);
 }
@@ -40,5 +43,5 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
 	else if (this->getGradeToExecute() < executor.getGrade())
 		throw GradeTooLowException();
 
-	std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

@@ -13,15 +13,18 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm():
-	Form("Default", 72, 45) {
+	Form("RobotomyRequestForm", 72, 45) {
+	this->_target = "Default";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
-	Form(target, 72, 45) {
+	Form("RobotomyRequestForm", 72, 45) {
+	this->_target = target;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other):
 	Form(other) {
+	*this = other;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
@@ -29,6 +32,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other) {
 	if (this == &other)
 		return (*this);
+	this->_target = other._target;
 	this->setIsSigned(other.getIsSigned());
 	return (*this);
 }
@@ -41,7 +45,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
 
 	std::cout << "* drill noises *" << std::endl;
 	if (rand() % 2)
-		std::cout << this->getName() << " has been robotomized" << std::endl;
+		std::cout << this->_target << " has been robotomized" << std::endl;
 	else
 		std::cout << "The robotomy failed" << std::endl;
 }
