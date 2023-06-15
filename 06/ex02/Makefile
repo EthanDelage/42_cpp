@@ -1,4 +1,4 @@
-NAME		=		serialize
+NAME		=		type
 
 #######################
 #	DIR
@@ -14,8 +14,11 @@ BUILD_DIR	=		.build/
 #	FILES
 #######################
 
-SRC			=		main.cpp			\
-					Serializer.cpp		\
+SRC			=		main.cpp	\
+					Base.cpp	\
+					A.cpp		\
+					B.cpp		\
+					C.cpp		\
 
 OBJ			=		$(addprefix $(BUILD_DIR), $(SRC:.cpp=.o))
 
