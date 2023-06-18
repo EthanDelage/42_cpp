@@ -13,13 +13,12 @@
 # define EASYFIND_HPP
 
 # include <exception>
+# include <algorithm>
 
 template<typename T>
 int	easyfind(T const &container, int toFind) {
-	for (typename T::const_iterator it = container.begin(); it != container.end(); ++it) {
-		if (*it == toFind)
-			return (toFind);
-	}
+	if (std::find(container.begin(), container.end(), toFind) != container.end())
+		return (toFind);
 	throw std::exception();
 }
 
