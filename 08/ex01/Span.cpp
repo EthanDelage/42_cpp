@@ -49,7 +49,25 @@ void Span::addNumber(int number) {
 	if (this->_size > this->_span.size())
 		this->_span.push_back(number);
 	else
-		throw std::exception();
+		throw std::runtime_error("Too many numbers in span");
+}
+
+void Span::addMultipleNumber(int *first, int *last) {
+	try {
+		while (first != last) {
+			addNumber(*first);
+			++first;
+		}
+	} catch (std::exception const &e) {
+		throw std::runtime_error(e.what());
+	}
+}
+
+void Span::displaySpan() {
+	std::cout << "Span:" << std::endl;
+	for (std::vector<int>::const_iterator it = _span.begin(); it != _span.end(); ++it) {
+		std::cout << *it << std::endl;
+	}
 }
 
 int Span::longestSpan() {

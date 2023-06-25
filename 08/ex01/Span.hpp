@@ -25,6 +25,8 @@ public:
 	Span &operator=(Span const &other);
 
 	void			addNumber(int number);
+	void			addMultipleNumber(int *first, int *last);
+	void			displaySpan();
 	int 			shortestSpan();
 	int 			longestSpan();
 	unsigned int	getSize();
