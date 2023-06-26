@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm():
 	Form("RobotomyRequestForm", 72, 45) {

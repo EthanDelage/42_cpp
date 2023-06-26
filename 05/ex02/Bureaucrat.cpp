@@ -15,7 +15,7 @@ Bureaucrat::Bureaucrat(): _name("Default") {
 	this->_grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string name, uint8_t grade): _name(name) {
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade): _name(name) {
 	if (grade > 150)
 		throw GradeTooLowException();
 	else if (grade < 1)
@@ -72,7 +72,7 @@ std::string Bureaucrat::getName() const {
 	return (this->_name);
 }
 
-uint8_t Bureaucrat::getGrade() const {
+unsigned int Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 

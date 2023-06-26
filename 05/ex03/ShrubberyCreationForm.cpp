@@ -46,7 +46,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	else if (this->getGradeToExecute() < executor.getGrade())
 		throw GradeTooLowException();
 
-	std::ofstream outfile(this->_target + "_shruberry");
+	std::ofstream outfile((this->_target + "_shruberry").c_str());
 	if (outfile.fail())
 	{
 		std::cerr << "Cannot open file " << this->_target << "_shruberry" << std::endl;

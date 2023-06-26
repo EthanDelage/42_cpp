@@ -22,7 +22,7 @@ class Bureaucrat {
 
 public:
 	Bureaucrat();
-	Bureaucrat(std::string name, uint8_t grade);
+	Bureaucrat(std::string name, unsigned int grade);
 	Bureaucrat(Bureaucrat const &other);
 	~Bureaucrat();
 
@@ -41,16 +41,16 @@ public:
 		}
 	};
 
-	void		signForm(Form &formToSign);
-	void		executeForm(Form const &formToExecute);
-	std::string	getName() const;
-	uint8_t		getGrade() const;
-	void		incrementGrade();
-	void		decreaseGrade();
+	std::string		getName() const;
+	unsigned int	getGrade() const;
+	void			incrementGrade();
+	void			decreaseGrade();
+	void 			signForm(Form &formToSign);
+	void 			executeForm(const Form &formToExecute);
 
 private:
 	std::string	const	_name;
-	uint8_t				_grade;
+	unsigned int		_grade;
 
 };
 

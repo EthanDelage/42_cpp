@@ -23,6 +23,7 @@ int	main() {
 	}
 	try {
 		Bureaucrat max("max", 1);
+		std::cout << max << std::endl;
 		max.incrementGrade();
 	}
 	catch (Bureaucrat::GradeTooHighException &e) {

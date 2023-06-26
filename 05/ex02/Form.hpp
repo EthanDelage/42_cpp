@@ -22,7 +22,7 @@ class Form {
 
 public:
 	Form();
-	Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExecute);
+	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
 	Form(Form const &other);
 	~Form();
 
@@ -52,14 +52,14 @@ public:
 	std::string				getName() const;
 	bool					getIsSigned() const;
 	void					setIsSigned(bool value);
-	uint8_t 				getGradeToSign() const;
-	uint8_t 				getGradeToExecute() const;
+	unsigned int			getGradeToSign() const;
+	unsigned int			getGradeToExecute() const;
 
 private:
 	std::string const	_name;
 	bool				_isSigned;
-	uint8_t const		_gradeToSign;
-	uint8_t const		_gradeToExecute;
+	unsigned int const	_gradeToSign;
+	unsigned int const	_gradeToExecute;
 
 };
 

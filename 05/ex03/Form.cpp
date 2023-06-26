@@ -16,7 +16,7 @@ Form::Form(): _name("Default"), _gradeToSign(1), _gradeToExecute(1) {
 	this->_isSigned = false;
 }
 
-Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExecute):
+Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute):
 	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 	this->_isSigned = false;
 	if (gradeToExecute > 150 || gradeToSign > 150)
@@ -66,10 +66,10 @@ void Form::setIsSigned(bool value) {
 	this->_isSigned = value;
 }
 
-uint8_t	Form::getGradeToSign() const {
+unsigned int Form::getGradeToSign() const {
 	return (this->_gradeToSign);
 }
 
-uint8_t	Form::getGradeToExecute() const {
+unsigned int Form::getGradeToExecute() const {
 	return (this->_gradeToExecute);
 }

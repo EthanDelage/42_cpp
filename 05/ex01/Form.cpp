@@ -16,7 +16,7 @@ Form::Form(): _name("Default"), _gradeToSign(1), _gradeToExecute(1) {
 	this->_isSigned = false;
 }
 
-Form::Form(std::string name, uint8_t gradeToSign, uint8_t gradeToExecute):
+Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute):
 	_name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 	this->_isSigned = false;
 	if (gradeToExecute > 150 || gradeToSign > 150)
