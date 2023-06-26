@@ -17,6 +17,7 @@ int main() {
 	{
 		Array<int> myArray(5);
 
+		Array<int> secondArray = myArray;
 		for (int i = 0; i < 5; ++i) {
 			myArray[i] = i;
 		}

@@ -34,11 +34,11 @@ public:
 		*this = other;
 	};
 	~Array() {
-		delete this->_array;
+		delete[] this->_array;
 	};
 
 	Array &operator=(Array const &other) {
-		if (*this == other)
+		if (this == &other)
 			return (*this);
 		this->_array = new T[other._size];
 		this->_size = other._size;
