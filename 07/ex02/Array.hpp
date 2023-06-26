@@ -20,41 +20,49 @@ class Array {
 
 public:
 	Array() {
-		this->_array = NULL;
-		this->_size = 0;
+		_array = NULL;
+		_size = 0;
 	};
+
 	Array(unsigned int size) {
-		this->_array = new T[size];
-		this->_size = size;
+		_array = new T[size];
+		_size = size;
 		for (unsigned int i = 0; i < size; ++i) {
-			this->_array[i] = T();
+			_array[i] = T();
 		}
 	};
+
 	Array(Array const &other) {
+		_array = NULL;
 		*this = other;
 	};
+
 	~Array() {
-		delete[] this->_array;
+		delete[] _array;
 	};
 
 	Array &operator=(Array const &other) {
 		if (this == &other)
 			return (*this);
-		this->_array = new T[other._size];
-		this->_size = other._size;
-		for (unsigned int i = 0; i < this->_size; ++i) {
-			this->_array[i] = other._array[i];
+		if (_array)
+			delete[] _array;
+		_array = new T[other._size];
+		_size = other._size;
+		for (unsigned int i = 0; i < _size; ++i) {
+			_array[i] = other._array[i];
 		}
 		return (*this);
 	};
+
 	T	&operator[](unsigned int index) {
-		if (index >= this->_size)
+		if (index >= _size)
+
 			throw std::exception();
-		return (this->_array[index]);
+		return (_array[index]);
 	};
 
 	unsigned int	size() const {
-		return this->_size;
+		return _size;
 	};
 
 private:
