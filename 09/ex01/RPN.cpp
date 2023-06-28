@@ -52,11 +52,14 @@ static int	do_op(std::stack<int> &numberStack, char op) {
 	if (op == '+')
 		result += numberStack.top();
 	else if (op == '-')
-		result -= numberStack.top();
+		result = numberStack.top() - result;
 	else if (op == '*')
 		result *= numberStack.top();
-	else if (op == '/')
-		result /= numberStack.top();
+	else if (op == '/') {
+		if (result == 0)
+			throw std::runtime_error("Error");
+		result = numberStack.top() / result;
+	}
 	numberStack.pop();
 	return (result);
 }
