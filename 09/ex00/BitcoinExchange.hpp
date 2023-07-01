@@ -27,11 +27,17 @@ public:
 
 	BitcoinExchange	&operator=(BitcoinExchange const &other);
 
+	void	openInputFile(char const *inputFile);
+	void	processLine();
+	bool	eof();
+
 private:
 	std::map<std::string, float>	_data;
 	std::ifstream					_inputFile;
 
 	void	parseData();
+	void	parseDataLine(std::ifstream &dataFile);
+	bool	isValidDate(std::string date);
 };
 
 #endif

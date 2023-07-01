@@ -13,10 +13,16 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-	(void) argv;
-	(void) argc;
+	if (argc != 2) {
+		std::cerr << "Error: couldn't open file" << std::endl;
+		return (1);
+	}
 	try {
 		BitcoinExchange bitcoin;
+
+		bitcoin.openInputFile(argv[1]);
+		while (!bitcoin.eof())
+			bitcoin.processLine();
 	} catch (std::exception const &e) {
 		std::cerr << e.what() << std::endl;
 		return (1);
