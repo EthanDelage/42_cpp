@@ -9,3 +9,23 @@
 /*   Updated: 2023/07/01 15:04:00 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "PmergeMe.hpp"
+
+#include <iostream>
+
+int	main(int argc, char **argv) {
+	if (argc < 2) {
+		std::cerr << "Error" << std::endl;
+		return (1);
+	}
+	try {
+		PmergeMe	mergeMe(argc, argv);
+
+		mergeMe.display();
+		mergeMe.mergeInsertSortDeque(0, argc - 1);
+		mergeMe.display();
+	} catch (std::exception const &e) {
+		std::cerr << "Error" << std::endl;
+		return (1);
+	}
+}

@@ -1,4 +1,4 @@
-NAME		=
+NAME		=		PmergeMe
 
 #######################
 #	DIR
@@ -26,7 +26,7 @@ DEPS		=		$(OBJ:.o=.d)
 #	FLAGS
 #######################
 
-CFLAGS		=		-Wall -Werror -Wextra -std=c++98
+CFLAGS		=		-Wall -Werror -Wextra -std=c++98 -g
 
 IFLAGS		=		-I $(INC_DIR)
 

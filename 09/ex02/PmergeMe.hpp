@@ -25,11 +25,15 @@ public:
 
 	PmergeMe &operator=(PmergeMe const &other);
 
+	void	display();
+	void	mergeInsertSortDeque(int left, int right);
+
 private:
 	std::list<int>	_list;
 	std::deque<int>	_deque;
 
-	int	parseArgument(char const *str);
+	int		parseArgument(char const *str);
+	void	mergeDeque(int left, int middle, int right);
 
 };
 
