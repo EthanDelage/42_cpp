@@ -29,7 +29,7 @@ Intern &Intern::operator=(Intern const &other) {
 
 
 Form *Intern::makeForm(std::string formName, std::string target) {
-	Form		*newForm;
+	Form		*newForm = NULL;
 	std::string	formNames[] = {"robotomy request", "shrubbery creation", "presidential pardon", ""};
 	Form		*forms[] = {new RobotomyRequestForm(target), new ShrubberyCreationForm(target), new PresidentialPardonForm()};
 
