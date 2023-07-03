@@ -62,7 +62,14 @@ void PmergeMe::display() {
 	clock_t	end = clock();
 	double	duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	std::cout << "Time to process a range of " << _deque.size()
-		<< " elements with std::deque<int>: " << duration << "s" << std::endl;
+		<< " elements with std::deque<int>: " << duration << " s" << std::endl;
+
+	start = clock();
+	mergeInsertSortList(0, _list.size());
+	end = clock();
+	duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _deque.size()
+		<< " elements with std::list<int>: " << duration << " s" << std::endl;
 }
 
 int PmergeMe::parseArgument(const char *str) {
@@ -119,5 +126,65 @@ void PmergeMe::mergeDeque(int left, int middle, int right) {
 		_deque[k] = rightDeque[j];
 		++j;
 		++k;
+	}
+}
+
+void PmergeMe::mergeInsertSortList(int left, int right) {
+	int	middle = left + (right - left) / 2;
+
+	if (middle != left && middle != right) {
+		mergeInsertSortList(left, middle);
+		mergeInsertSortList(middle + 1, right);
+	}
+	mergeList(left, middle, right);
+}
+
+void PmergeMe::mergeList(int left, int middle, int right) {
+	int				nLeft = middle - left + 1;
+	int 			nRight = right - middle;
+
+	std::list<int>				leftList(nLeft);
+	std::list<int>				rightList(nRight);
+	std::list<int>::iterator	leftIt = leftList.begin();
+	std::list<int>::iterator	rightIt = rightList.begin();
+	std::list<int>::iterator	listIt = _list.begin();
+
+	std::advance(listIt, left - 1);
+	for (int i = 0; i < nLeft; ++i) {
+		*leftIt = *listIt;
+		++leftIt;
+		++listIt;
+	}
+	listIt = _list.begin();
+	std::advance(listIt, middle);
+	for (int i = 0; i < nRight; ++i) {
+		*rightIt = *(listIt);
+		++rightIt;
+		++listIt;
+	}
+
+	leftIt = leftList.begin();
+	rightIt = rightList.begin();
+	listIt = _list.begin();
+	std::advance(listIt, left - 1);
+	while (leftIt != leftList.end() && rightIt != rightList.end()) {
+		if (*leftIt <= *rightIt) {
+			*listIt = *leftIt;
+			++leftIt;
+		} else {
+			*listIt = *rightIt;
+			++rightIt;
+		}
+		++listIt;
+	}
+	while (leftIt != leftList.end()) {
+		*listIt = *leftIt;
+		++leftIt;
+		++listIt;
+	}
+	while (rightIt != rightList.end()) {
+		*listIt = *rightIt;
+		++rightIt;
+		++listIt;
 	}
 }

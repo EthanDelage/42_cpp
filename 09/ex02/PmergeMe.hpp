@@ -34,6 +34,8 @@ private:
 	int		parseArgument(char const *str);
 	void	mergeInsertSortDeque(int left, int right);
 	void	mergeDeque(int left, int middle, int right);
+	void	mergeInsertSortList(int left, int right);
+	void	mergeList(int left, int middle, int right);
 
 };
 
