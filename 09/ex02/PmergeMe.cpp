@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 PmergeMe::PmergeMe() {}
 
@@ -41,10 +42,27 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &other) {
 }
 
 void PmergeMe::display() {
+	std::deque<int>	copy = _deque;
+
+	std::cout << "Before: ";
 	for (std::deque<int>::const_iterator it = _deque.begin(); it != _deque.end(); ++it) {
-		std::cout << *it << ", ";
+		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+
+	std::sort(copy.begin(), copy.end());
+	std::cout << "After: ";
+	for (std::deque<int>::const_iterator it = copy.begin(); it != copy.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+
+	clock_t	start = clock();
+	mergeInsertSortDeque(0, _deque.size() - 1);
+	clock_t	end = clock();
+	double	duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _deque.size()
+		<< " elements with std::deque<int>: " << duration << "s" << std::endl;
 }
 
 int PmergeMe::parseArgument(const char *str) {
@@ -68,7 +86,7 @@ void PmergeMe::mergeInsertSortDeque(int left, int right) {
 }
 
 void PmergeMe::mergeDeque(int left, int middle, int right) {
-	int				nLeft = left - middle + 1;
+	int				nLeft = middle - left + 1;
 	int 			nRight = right - middle;
 
 	std::deque<int>	leftDeque(nLeft);
@@ -102,5 +120,4 @@ void PmergeMe::mergeDeque(int left, int middle, int right) {
 		++j;
 		++k;
 	}
-	std::cout << "test" << std::endl;
 }
