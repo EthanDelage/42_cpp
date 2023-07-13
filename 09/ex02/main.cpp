@@ -22,8 +22,6 @@ int	main(int argc, char **argv) {
 		PmergeMe	mergeMe(argc, argv);
 
 		mergeMe.display();
-		mergeMe.mergeInsertSortDeque(0, argc - 1);
-		mergeMe.display();
 	} catch (std::exception const &e) {
 		std::cerr << "Error" << std::endl;
 		return (1);
