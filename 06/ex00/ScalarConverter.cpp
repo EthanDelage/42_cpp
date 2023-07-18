@@ -13,6 +13,8 @@
 #include <errno.h>
 #include <iostream>
 #include <math.h>
+#include <cstring>
+#include <limits>
 
 ScalarConverter::ScalarConverter() {}
 
@@ -81,7 +83,7 @@ void ScalarConverter::display(double conversion, bool error) {
 		std::cout << conversion << "f" << std::endl;
 	else if (error
 		|| conversion > std::numeric_limits<float>::max()
-		|| conversion < std::numeric_limits<float>::lowest())
+		|| conversion < (- std::numeric_limits<float>::max()))
 		std::cout << "impossible" << std::endl;
 	else
 	{

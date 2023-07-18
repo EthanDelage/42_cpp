@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "Base.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int	main() {
 	srand(time(NULL));

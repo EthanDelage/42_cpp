@@ -15,6 +15,8 @@
 #include "C.hpp"
 
 #include <iostream>
+#include <cstdlib>
+#include <typeinfo>
 
 Base::~Base() {}
 
@@ -57,18 +59,18 @@ void Base::identify(Base &ref) {
 		std::cout << "A" << std::endl;
 		return ;
 	}
-	catch (const std::bad_cast &e) {}
+	catch (std::bad_cast const & e) {}
 	try {
 		(void) dynamic_cast<B &>(ref);
 		std::cout << "B" << std::endl;
 		return ;
 	}
-	catch (const std::bad_cast &e) {}
+	catch (std::bad_cast const & e) {}
 	try {
 		(void) dynamic_cast<C &>(ref);
 		std::cout << "C" << std::endl;
 		return ;
 	}
-	catch (const std::bad_cast &e) {}
+	catch (std::bad_cast const & e) {}
 	std::cout << "Unknown" << std::endl;
 }
