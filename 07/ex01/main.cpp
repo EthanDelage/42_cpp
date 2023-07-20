@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "iter.hpp"
+#include <cstring>
 
 template<typename T>
 T		triple(T value);
