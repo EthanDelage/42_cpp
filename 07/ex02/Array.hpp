@@ -56,7 +56,6 @@ public:
 
 	T	&operator[](unsigned int index) {
 		if (index >= _size)
-
 			throw std::exception();
 		return (_array[index]);
 	};
