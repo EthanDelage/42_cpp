@@ -13,10 +13,10 @@
 #include <cstring>
 
 template<typename T>
-T		triple(T value);
+void	triple(T& value);
 template<typename T>
 void	displayArray(T *array, size_t size);
-char	ft_toupper(char c);
+void	ft_toupper(char& c);
 
 int main() {
 	{
@@ -53,8 +53,8 @@ int main() {
 }
 
 template<typename T>
-T	triple(T value) {
-	return (value * 3);
+void	triple(T& value) {
+	value *= 3;
 }
 
 template<typename T>
@@ -66,6 +66,6 @@ void	displayArray(T *array, size_t size) {
 	std::cout << array[size - 1] << std::endl;
 }
 
-char	ft_toupper(char c) {
-	return (toupper(c));
+void	ft_toupper(char& c) {
+	c = toupper(c);
 }
