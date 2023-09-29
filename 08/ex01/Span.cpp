@@ -60,13 +60,13 @@ void Span::displaySpan() {
 
 int Span::longestSpan() {
 	if (_span.size() == 0 || _span.size() == 1)
-		throw (std::exception);
+		throw (std::exception());
 	return (*std::max_element(_span.begin(), _span.end()) - *std::min_element(_span.begin(), _span.end()));
 }
 
 int Span::shortestSpan() {
 	if (_span.size() == 0 || _span.size() == 1)
-		throw (std::exception);
+		throw (std::exception());
 
 	std::vector<int> copy = _span;
 	std::sort(copy.begin(), copy.end());
