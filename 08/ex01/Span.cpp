@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 #include "Span.hpp"
 #include <algorithm>
-#include <iostream>
 
 Span::Span() {
 	this->_span = std::vector<int>();
@@ -52,17 +51,6 @@ void Span::addNumber(int number) {
 		throw std::runtime_error("Too many numbers in span");
 }
 
-void Span::addMultipleNumber(int *first, int *last) {
-	try {
-		while (first != last) {
-			addNumber(*first);
-			++first;
-		}
-	} catch (std::exception const &e) {
-		throw std::runtime_error(e.what());
-	}
-}
-
 void Span::displaySpan() {
 	std::cout << "Span:" << std::endl;
 	for (std::vector<int>::const_iterator it = _span.begin(); it != _span.end(); ++it) {
@@ -71,10 +59,15 @@ void Span::displaySpan() {
 }
 
 int Span::longestSpan() {
+	if (_span.size() == 0 || _span.size() == 1)
+		throw (std::exception);
 	return (*std::max_element(_span.begin(), _span.end()) - *std::min_element(_span.begin(), _span.end()));
 }
 
 int Span::shortestSpan() {
+	if (_span.size() == 0 || _span.size() == 1)
+		throw (std::exception);
+
 	std::vector<int> copy = _span;
 	std::sort(copy.begin(), copy.end());
 
