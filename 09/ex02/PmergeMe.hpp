@@ -12,8 +12,11 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
+#include <cstdlib>
 # include <list>
-# include <deque>
+# include <vector>
+
+# define K 11
 
 class PmergeMe {
 
@@ -28,15 +31,15 @@ public:
 	void	display();
 
 private:
+	std::vector<int>	_vector;
 	std::list<int>	_list;
-	std::deque<int>	_deque;
 
 	int		parseArgument(char const *str);
-	void	mergeInsertSortDeque(int left, int right);
-	void	mergeDeque(int left, int middle, int right);
-	void	mergeInsertSortList(int left, int right);
-	void	mergeList(int left, int middle, int right);
 
+	void	mergeInsertSortVector(std::vector<int> & vector);
+	void	insertSortVector(std::vector<int> & vector);
+	void	mergeInsertSortList(std::list<int> & list);
+	void	insertSortList(std::list<int> & list);
 };
 
 #endif
