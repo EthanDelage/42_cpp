@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "BitcoinExchange.hpp"
-
 #include <cstring>
 #include <iostream>
 #include <cstdlib>
+#include <sys/stat.h>
 
 BitcoinExchange::BitcoinExchange() {
 	parseData();
@@ -27,6 +27,8 @@ BitcoinExchange::~BitcoinExchange() {
 void BitcoinExchange::openInputFile(const char *inputFile) {
 	std::string line;
 
+	if (isDir(inputFile))
+		throw std::runtime_error(std::string(inputFile) + " is a directory");
 	_inputFile.open(inputFile);
 	if (!_inputFile.is_open())
 		throw std::runtime_error(std::string("Cannot open ") + inputFile);
@@ -60,8 +62,7 @@ void BitcoinExchange::processLine() {
 		if (exchangeRate != _data.begin())
 			--exchangeRate;
 		std::cout << date << " => " << value << " = "
-				  << value * exchangeRate->second << std::endl;
-	}
+				  << value * exchangeRate->second << std::endl; }
 }
 
 bool BitcoinExchange::eof() {
@@ -108,4 +109,13 @@ bool BitcoinExchange::isValidDate(std::string date) {
 			+ (month == 2 && year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)))
 		return (true);
 	return (false);
+}
+
+bool BitcoinExchange::isDir(std::string const & dir) {
+	struct stat st;
+
+	if (stat(dir.c_str(), &st) == 0) {
+		return S_ISDIR(st.st_mode);
+	}
+	return false;
 }

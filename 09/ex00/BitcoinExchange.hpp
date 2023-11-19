@@ -38,6 +38,7 @@ private:
 	void	parseData();
 	void	parseDataLine(std::ifstream &dataFile);
 	bool	isValidDate(std::string date);
+	bool	isDir(std::string const & dir);
 };
 
 #endif
