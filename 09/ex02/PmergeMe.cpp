@@ -59,7 +59,7 @@ void PmergeMe::display() {
 
 	double	duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 	std::cout << "Time to process a range of " << _vector.size()
-		<< " elements with std::deque<int>: " << duration << " s" << std::endl;
+		<< " elements with std::vector<int>: " << duration << " s" << std::endl;
 
 	start = clock();
 	mergeInsertSortList(_list);
@@ -74,7 +74,7 @@ int PmergeMe::parseArgument(const char *str) {
 	char	*rest;
 
 	result = strtod(str, &rest);
-	if (*rest != '\0' && std::string(str).find('.'))
+	if (*rest != '\0' || std::string(str).find('.') != std::string::npos)
 		throw std::exception();
 	return (static_cast<int>(result));
 }
